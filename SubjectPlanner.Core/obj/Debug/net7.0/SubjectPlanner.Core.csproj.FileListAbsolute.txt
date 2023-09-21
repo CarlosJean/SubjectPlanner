@@ -1,0 +1,11 @@
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\SubjectPlanner.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\SubjectPlanner.Core.AssemblyInfoInputs.cache
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\SubjectPlanner.Core.AssemblyInfo.cs
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\SubjectPlanner.Core.csproj.CoreCompileInputs.cache
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\bin\Debug\net7.0\SubjectPlanner.Core.deps.json
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\bin\Debug\net7.0\SubjectPlanner.Core.dll
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\bin\Debug\net7.0\SubjectPlanner.Core.pdb
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\SubjectPlanner.Core.dll
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\refint\SubjectPlanner.Core.dll
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\SubjectPlanner.Core.pdb
+C:\Users\jean1\OneDrive\Documents\Proyectos\SubjectPlanner\SubjectPlanner.Core\obj\Debug\net7.0\ref\SubjectPlanner.Core.dll

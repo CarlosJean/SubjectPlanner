@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "SubjectPlanner.Core/1.0.0": {
+        "runtime": {
+          "SubjectPlanner.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SubjectPlanner.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

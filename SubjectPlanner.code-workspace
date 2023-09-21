@@ -1,0 +1,10 @@
+{
+	"folders": [
+		{
+			"path": "SubjectPlanner.Test"
+		},
+		{
+			"path": "SubjectPlanner.Core"
+		}
+	]
+}
