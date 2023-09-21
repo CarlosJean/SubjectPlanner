@@ -14,7 +14,7 @@ public class ScheduleRepository : IScheduleRepository
 
         List<ClassTime> availableClassTimes = new();
 
-        List<Incidence> incidences = incidencesRepository.AffectingClassDay(classDay.Date);
+        List<Incidence> incidences = incidencesRepository.AffectingClassDay(classDay);
 
         foreach (Incidence incidence in incidences)
         {
@@ -47,7 +47,6 @@ public class ScheduleRepository : IScheduleRepository
             }
             else
             {
-
                 ClassTime availableClassTime = new ClassTime
                 {
                     TimeFrom = firstTimeInList.Add(new TimeSpan(0, 0, -1)),
@@ -62,7 +61,6 @@ public class ScheduleRepository : IScheduleRepository
 
                 availableClassTimes.Add(availableClassTime);
             }
-
         }
 
         return availableClassTimes;
@@ -80,58 +78,5 @@ public class ScheduleRepository : IScheduleRepository
         }
 
         return intervalSpread;
-    }
-
-    // public List<ClassTime> AvailableClassTimes(ClassDay classDay)
-    // {
-    //     List<ClassTime> availableTimes = new List<ClassTime>();
-    //     List<Incidence> incidences = incidencesRepository
-    //         .AffectingClassDay(classDay.Date);
-
-    //     foreach (Incidence incidence in incidences)
-    //     {
-    //         if (incidence.TimeFrom <= classDay.ClassTime.TimeFrom && incidence.TimeTo < classDay.ClassTime.TimeTo)
-    //         {
-    //             availableTimes.Add(new ClassTime
-    //             {
-    //                 TimeFrom = incidence.TimeTo,
-    //                 TimeTo = classDay.ClassTime.TimeTo
-    //             });
-    //         }
-    //         else if (incidence.TimeFrom < classDay.ClassTime.TimeFrom && incidence.TimeTo > classDay.ClassTime.TimeTo)
-    //         {
-    //             availableTimes.Add(new ClassTime
-    //             {
-    //                 TimeFrom = classDay.ClassTime.TimeFrom,
-    //                 TimeTo = classDay.ClassTime.TimeFrom
-    //             });
-    //         }
-    //         else if (incidence.TimeFrom > classDay.ClassTime.TimeFrom && incidence.TimeTo < classDay.ClassTime.TimeTo)
-    //         {
-    //             availableTimes.Add(new ClassTime
-    //             {
-    //                 TimeFrom = classDay.ClassTime.TimeFrom,
-    //                 TimeTo = incidence.TimeTo
-    //             });
-
-    //             availableTimes.Add(
-    //                 new ClassTime
-    //                 {
-    //                     TimeFrom = incidence.TimeTo,
-    //                     TimeTo = classDay.ClassTime.TimeTo
-    //                 }
-    //             );
-    //         }
-    //         else if (incidence.TimeFrom > classDay.ClassTime.TimeFrom && incidence.TimeTo < classDay.ClassTime.TimeTo)
-    //         {
-    //             availableTimes.Add(new ClassTime
-    //             {
-    //                 TimeFrom = classDay.ClassTime.TimeFrom,
-    //                 TimeTo = incidence.TimeFrom 
-    //             });
-    //         }
-    //     }
-
-    //     return availableTimes;
-    // }
+    }    
 }

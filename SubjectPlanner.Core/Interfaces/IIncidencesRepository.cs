@@ -2,5 +2,5 @@ namespace SubjectPlanner.Core;
 
 public interface IIncidencesRepository
 {
-    public List<Incidence> AffectingClassDay(DateTime classDate);
+    public List<Incidence> AffectingClassDay(ClassDay classDay);
 }

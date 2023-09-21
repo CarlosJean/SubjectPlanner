@@ -35,7 +35,7 @@ namespace Tests
             };
 
             var incidencesRepositoryMock = new Mock<IIncidencesRepository>();
-            incidencesRepositoryMock.Setup(incidencesRepository => incidencesRepository.AffectingClassDay(classDay.Date))
+            incidencesRepositoryMock.Setup(incidencesRepository => incidencesRepository.AffectingClassDay(classDay))
             .Returns(incidences);
 
             IScheduleRepository scheduleRepository = new ScheduleRepository(incidencesRepositoryMock.Object);
@@ -83,7 +83,7 @@ namespace Tests
             };
 
             var incidencesRepositoryMock = new Mock<IIncidencesRepository>();
-            incidencesRepositoryMock.Setup(incidencesRepository => incidencesRepository.AffectingClassDay(classDay.Date))
+            incidencesRepositoryMock.Setup(incidencesRepository => incidencesRepository.AffectingClassDay(classDay))
             .Returns(incidences);
 
             IScheduleRepository scheduleRepository = new ScheduleRepository(incidencesRepositoryMock.Object);
