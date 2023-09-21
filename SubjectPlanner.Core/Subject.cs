@@ -2,8 +2,8 @@
 namespace SubjectPlanner.Core;
 public class Subject : ISubject
 {
-    public IEnumerable<Schedule> Schedules { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public float Hours { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public DateTime StartDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-    public DateTime EndDate { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+    public IEnumerable<Schedule> Schedules { get; set;} = new List<Schedule>();
+    public double Hours { get; set;}
+    public DateTime StartDate { get; set;}
+    public DateTime EndDate { get; set;}
 }

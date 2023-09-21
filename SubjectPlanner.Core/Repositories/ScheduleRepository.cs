@@ -14,7 +14,7 @@ public class ScheduleRepository : IScheduleRepository
             classDay.ClassTime
         };
 
-        List<Incidence> incidences = incidencesRepository.AffectingClassDay(classDay);
+        List<Incidence> incidences = incidencesRepository.AffectingClassDay(classDay) ?? new List<Incidence>();
 
         foreach (Incidence incidence in incidences)
         {
@@ -22,11 +22,11 @@ public class ScheduleRepository : IScheduleRepository
 
             foreach (ClassTime availableClassTime in availableClassTimes.ToList())
             {
-                bool incidenceAffectsClassTime = IncidenceAffectsClassDay(availableClassTime, incidence);
+                List<TimeSpan> classTimeIntervalSpread = this.SpreadInterval(availableClassTime.TimeFrom, availableClassTime.TimeTo);
+                bool incidenceAffectsClassTime = classTimeIntervalSpread.Intersect(incidenceIntervalSpread).Any();
 
                 if (incidenceAffectsClassTime)
                 {
-                    List<TimeSpan> classTimeIntervalSpread = this.SpreadInterval(availableClassTime.TimeFrom, availableClassTime.TimeTo);
                     List<TimeSpan> excludedAvailableClassTimes = classTimeIntervalSpread
                     .Except(incidenceIntervalSpread)
                     .ToList();
@@ -95,7 +95,6 @@ public class ScheduleRepository : IScheduleRepository
 
     private void CleanAffectingPreviousAvailableClassTimes(ref List<ClassTime> previousClassTimes, List<ClassTime> newClassTimes)
     {
-
         foreach (var previousClassTime in previousClassTimes.ToList())
         {
             List<TimeSpan> previousClassTimeSpread = this.SpreadInterval(previousClassTime.TimeFrom, previousClassTime.TimeTo);
@@ -112,16 +111,5 @@ public class ScheduleRepository : IScheduleRepository
                 }
             }
         }
-    }
-
-    private bool IncidenceAffectsClassDay(ClassTime classTime, Incidence incidence)
-    {
-
-        List<TimeSpan> classTimeIntervalSpread = this.SpreadInterval(classTime.TimeFrom, classTime.TimeTo);
-        List<TimeSpan> incidenceIntervalSpread = this.SpreadInterval(incidence.TimeFrom, incidence.TimeTo);
-
-        bool incidenceAffectsClassTime = classTimeIntervalSpread.Intersect(incidenceIntervalSpread).Any();
-
-        return incidenceAffectsClassTime;
     }
 }

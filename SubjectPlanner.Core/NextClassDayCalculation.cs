@@ -15,9 +15,14 @@ public class NextClassDayCalculation
         if (isValidDate)
         {
             float daysToSkip = this.SkipDaysToNext(currentDayOfWeek, schedules);
+            DateTime nextClassDay = currentClassDay.Date.AddDays(daysToSkip);
+            ClassTime? nextClassTime = schedules.Where(schedule => schedule.DayOfWeek == nextClassDay.Date.DayOfWeek)
+                .First()
+                .ClassTime ?? new ClassTime();
+                
+            DateTime nextClassDayDate = new(nextClassDay.Year, nextClassDay.Month, nextClassDay.Day, nextClassTime.TimeFrom.Hours, nextClassTime.TimeFrom.Minutes, nextClassTime.TimeFrom.Seconds);
 
-            DateTime nextClassDayDate = currentClassDay.Date.AddDays(daysToSkip);
-            classDay = new ClassDay { Date = nextClassDayDate };
+            classDay = new ClassDay { Date = nextClassDayDate, ClassTime = nextClassTime };
         };
 
         return classDay;
