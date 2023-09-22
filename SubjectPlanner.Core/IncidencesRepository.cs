@@ -1,14 +1,19 @@
 
 namespace SubjectPlanner.Core;
 
-public class IncidencesRepository : IIncidencesRepository{
+public class IncidencesRepository : IIncidencesRepository
+{
+
+    protected List<Incidence> incidences;
+    public IncidencesRepository(List<Incidence> incidences)
+    {
+        this.incidences = incidences;
+    }
     public List<Incidence> AffectingClassDay(ClassDay classDay)
-    {          
-        List<Incidence> incidences = new List<Incidence>()
-        .Where(incidence => incidence.Date == classDay.Date 
-            && !(incidence.TimeFrom < classDay.ClassTime.TimeFrom 
-                && incidence.TimeTo < classDay.ClassTime.TimeTo))
-        .ToList();
+    {
+        List<Incidence> incidences = this.incidences
+            .Where(incidence => incidence.Date.Date == classDay.Date.Date)
+            .ToList();
 
         return incidences;
     }

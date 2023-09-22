@@ -14,7 +14,7 @@ public class ScheduleRepository : IScheduleRepository
             classDay.ClassTime
         };
 
-        List<Incidence> incidences = incidencesRepository.AffectingClassDay(classDay) ?? new List<Incidence>();
+        List<Incidence> incidences = this.incidencesRepository.AffectingClassDay(classDay) ?? new List<Incidence>();
 
         foreach (Incidence incidence in incidences)
         {
@@ -30,9 +30,9 @@ public class ScheduleRepository : IScheduleRepository
                     List<TimeSpan> excludedAvailableClassTimes = classTimeIntervalSpread
                     .Except(incidenceIntervalSpread)
                     .ToList();
-
-                    TimeSpan firstTimeInList = excludedAvailableClassTimes.First();
-                    TimeSpan lastTimeInList = excludedAvailableClassTimes.Last();
+                    
+                    TimeSpan firstTimeInList = (excludedAvailableClassTimes.Count > 0) ? excludedAvailableClassTimes.First() : availableClassTime.TimeFrom;
+                    TimeSpan lastTimeInList = (excludedAvailableClassTimes.Count > 0) ? excludedAvailableClassTimes.Last() : availableClassTime.TimeFrom;
 
                     bool incidenceIsBetweenClassTime = (incidence.TimeFrom > classDay.ClassTime.TimeFrom && incidence.TimeTo < classDay.ClassTime.TimeTo);
                     if (incidenceIsBetweenClassTime)
